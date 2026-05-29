@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const {
   AZURE_AI_PROJECT_ENDPOINT,
   AZURE_AI_AGENT_ID,
-  AZURE_AI_AGENT_VERSION = "1",
+  AZURE_AI_AGENT_VERSION = "3",
   PORT,
 } = process.env;
 

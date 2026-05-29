@@ -567,7 +567,9 @@
 
         const bubble = document.createElement("div");
         bubble.className = "bubble";
-        bubble.textContent = text;
+
+        bubble.innerHTML = parseMarkdown(text);
+
         wrap.appendChild(bubble);
 
         chat.appendChild(wrap);
@@ -608,6 +610,17 @@
       }
 
       init();
+
+      function parseMarkdown(text) {
+        let htmlSafe = text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+        htmlSafe = htmlSafe.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+        return htmlSafe;
+      }
     </script>
   </body>
 </html>
